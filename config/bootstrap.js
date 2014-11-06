@@ -11,26 +11,34 @@
 
 module.exports.bootstrap = function(cb) {
 
-  Widget.count().exec(function (err, numWidgets) {
-    if (err) return cb(err);
+  Pencil.count().exec(function (err, numPencils) {
+    if (err) {
+      return cb(err);
+    }
 
-    // If widgets already exist, don't create them again
-    if (numWidgets > 0) {
+    // If at least one pencil already exists, don't worry about bootstrapping fake data.
+    if (numPencils > 0) {
       return cb();
     }
 
-    // If no widgets exist yet, create some
-    Widget.create([{
+    // If no pencils exist yet, create some
+    Pencil.create([{
       price: 99.99,
-      name: 'VacuClean 5000'
+      name: 'Big Stik 5000'
     },
     {
       price: 145.50,
-      name: 'VacuClean 8000'
+      name: '#3 Unleaded'
     }])
     // It's very important to trigger this callback method when you are finished
     // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-    .exec(cb);
+    .exec(function (err) {
+      if (err) {
+        return cb(err);
+      }
+
+      return cb();
+    });
   });
 
 };

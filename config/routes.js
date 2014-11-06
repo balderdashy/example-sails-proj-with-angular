@@ -32,12 +32,13 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  },
+  '/': 'PageController.showHomePage',
 
-  // Just a fake route
-  '/me': 'UserController.getMyProfile'
+  'get /me': 'UserController.getMyProfile',
+  'put /me': 'UserController.updateMyProfile',
+  'put /me/login': 'UserController.login',
+  'put /me/logout': 'UserController.logout',
+  'post /me/signup': 'UserController.signup',
 
   /***************************************************************************
   *                                                                          *

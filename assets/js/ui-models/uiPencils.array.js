@@ -1,4 +1,4 @@
-angular.module('SPA').uiArray('uiWidgets', [
+angular.module('SPA').uiArray('uiPencils', [
 
 /**
  * Module Dependencies
@@ -13,7 +13,7 @@ function( Cloud  ) {
      * Fetch new data from the server.
      *
      * @option {Number} belongingTo
-     *                    the id of the user whose widgets we should fetch
+     *                    the id of the user whose pencils we should fetch
      *                    e.g. 4
      *
      * @return {Promise}
@@ -21,7 +21,7 @@ function( Cloud  ) {
     fetch: function (options){
       var self = this;
 
-      return Cloud.listWidgets({
+      return Cloud.listPencils({
         belongingTo: options.belongingTo
       })
       .then(function whenServerResponds(data) {

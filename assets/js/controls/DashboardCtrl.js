@@ -12,8 +12,8 @@
 
 angular.module('SPA')
 .controller('DashboardCtrl', [
-        '$scope', '$rootScope', '$routeParams', 'uiWidgets', 'uiMe',
-function($scope ,  $rootScope,   $routeParams ,  uiWidgets ,  uiMe ) {
+        '$scope', '$rootScope', '$routeParams', 'uiPencils', 'uiMe',
+function($scope ,  $rootScope,   $routeParams ,  uiPencils ,  uiMe ) {
 
 
 
@@ -27,15 +27,20 @@ function($scope ,  $rootScope,   $routeParams ,  uiWidgets ,  uiMe ) {
   .then(function (){
 
     // Fetch widgets from server
-    uiWidgets.fetch({
+    uiPencils.fetch({
       belongingTo: uiMe.id
     });
 
   }).catch(function (err){
-    // TODO: handle error
-    //
-    // e.g. if err.status is 403, redirect to login.
+    // e.g. if err.status is 401/403, redirect to login.
+    if (err.status < 404 && err.status > 400) {
+      window.location = foo;
+      return;
+    }
+
     // If the error is unknkown, use a catch-all like `uiErrorBus`.
+    // (for simplicity, just using `console.error()` here)
+    console.error(err);
   });
 
 

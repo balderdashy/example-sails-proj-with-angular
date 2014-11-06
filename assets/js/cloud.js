@@ -9,7 +9,6 @@ angular.module('cloudsdk').endpoints({
   // (see assets/js/dependencies/cloudsdk.js for implementation)
 
 
-  // These are just example endpoints.
 
   // Me (current user)
   login: 'PUT /me/login',
@@ -18,10 +17,10 @@ angular.module('cloudsdk').endpoints({
   getMyProfile: 'GET /me',
   updateMyProfile: 'PUT /me',
 
-  // Widgets
-  listWidgets: 'GET /widgets',
-  createWidget: 'POST /widgets',
-  updateWidget: 'PUT /widgets/:id',
-  destroyWidget: 'DELETE /widgets/:id',
+  // Pencils
+  listPencils: 'GET /pencils',
+  createPencil: 'POST /pencils',
+  updatePencil: 'PUT /pencils/:id',
+  destroyPencil: 'DELETE /pencils/:id',
 
 });

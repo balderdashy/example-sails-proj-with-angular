@@ -1,0 +1,23 @@
+<h1>The dashboard</h1>
+
+<button ng-click="intent.sayHi(uiMe.bio)">Hi "{{uiMe.name}}"!</button>
+
+<section>
+  <h2>uiMe</h2>
+  <code>{{uiMe}}</code>
+
+</section>
+
+
+<section>
+  <h2>uiWidgets</h2>
+
+  <ul>
+    <li ng-repeat="widget in uiWidgets">
+      {{widget}}
+    </li>
+  </ul>
+
+</section>
+
+

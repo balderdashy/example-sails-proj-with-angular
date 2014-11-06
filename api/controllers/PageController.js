@@ -16,7 +16,7 @@ module.exports = {
    * Otherwise, show the public "brochure" site (`views/brochure.ejs`)
    */
   showHomePage: function (req, res) {
-    if (req.session.user) {
+    if (true || req.session.user) {
       return res.view('authenticated');
     }
 

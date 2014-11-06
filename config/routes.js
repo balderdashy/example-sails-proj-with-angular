@@ -22,7 +22,7 @@
 
 module.exports.routes = {
 
-  '/': 'PageController.showHomePage',
+  // '/': 'PageController.showHomePage',
 
   'POST /me/signup': 'UserController.signup',
   'PUT /me/login': 'UserController.login',

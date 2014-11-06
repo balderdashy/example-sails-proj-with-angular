@@ -15,12 +15,12 @@ module.exports = {
    * If logged in, show the logged-in SPA (`views/authenticated.ejs`).
    * Otherwise, show the public "brochure" site (`views/brochure.ejs`)
    */
-  showHomePage: function (req, res) {
-    if (true || req.session.user) {
-      return res.view('authenticated');
-    }
+  // showHomePage: function (req, res) {
+  //   if (req.session.user) {
+  //     return res.view('authenticated');
+  //   }
 
-    return res.view('brochure');
-  }
+  //   return res.view('brochure');
+  // }
 };
 

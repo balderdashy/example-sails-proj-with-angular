@@ -34,7 +34,9 @@
   </head>
 
   <body>
-    <%- body %>
+    <h1>Pencil Pals</h1>
+
+
 
 
 
@@ -92,7 +94,6 @@
     <script src="/js/dependencies/angular.min.js"></script>
     <script src="/js/dependencies/angular-route.min.js"></script>
     <script src="/js/dependencies/cloudsdk.js"></script>
-    <script src="/js/dependencies/jquery.min.js"></script>
     <script src="/js/dependencies/lodash.min.js"></script>
     <script src="/js/SPA.js"></script>
     <script src="/js/routes.js"></script>
@@ -101,5 +102,22 @@
     <script src="/js/ui-models/uiMe.object.js"></script>
     <script src="/js/ui-models/uiPencils.array.js"></script>
     <!--SCRIPTS END-->
+
+
+
+
+    <script>
+    $(function (){
+      $('body').append('<span id="loading">LOADING...</span>');
+      setTimeout(function (){
+        io.socket.get('/image/getHeroImage', function (imageMetadata){
+          $('body').append('<img src="'+imageMetadata.heroImg.src+'" alt="' + imageMetadata.heroImg.alt + '"/>');
+          $('#loading').remove();
+        });
+      }, 500);
+
+    });
+    </script>
+
   </body>
 </html>
